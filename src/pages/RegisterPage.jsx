@@ -23,13 +23,29 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Save to localStorage
+  
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  
+   
+    const emailExists = existingUsers.some(
+      (user) => user.email.toLowerCase() === formData.email.toLowerCase()
+    );
+  
+    if (emailExists) {
+      alert("This email is already registered!");
+      return;
+    }
+  
+ 
+    const updatedUsers = [...existingUsers, formData];
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  
+ 
     localStorage.setItem("userData", JSON.stringify(formData));
-
-    // Redirect to home page
+  
     navigate("/home");
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">

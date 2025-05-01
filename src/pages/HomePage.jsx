@@ -7,12 +7,12 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="bg-white w-full max-w-md rounded-lg shadow-md overflow-hidden">
-        {/* Top Bar */}
+ 
         <div className="bg-gray-100 px-6 py-4 border-b border-gray-200">
           <h1 className="text-lg font-semibold text-gray-800">Account Settings</h1>
         </div>
 
-        {/* Content */}
+ 
         <div className="p-6 flex flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="relative">
@@ -27,7 +27,7 @@ const HomePage = () => {
             </div>
             <div>
               <h3 className="font-semibold text-gray-800">
-                {userData?.name || "Guest User"}
+                {userData?.fullName || "Guest User"}
               </h3>
               <p className="text-sm text-gray-600">{userData?.email}</p>
             </div>
